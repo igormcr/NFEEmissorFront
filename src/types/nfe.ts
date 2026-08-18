@@ -42,7 +42,48 @@ export type ApiResponse<T = unknown> = {
     message?: string;
 };
 
-export type EmitirRequest = Record<string, unknown>;
+export type EnderecoRequest = {
+    logradouro: string;
+    numero: string;
+    complemento?: string;
+    bairro: string;
+    codigoMunicipio: string;
+    nomeMunicipio: string;
+    uf: Uf;
+    cep: string;
+    codigoPais: string;
+    nomePais: string;
+    telefone?: string;
+};
+
+export type DestinatarioRequest = {
+    cnpjCpf?: string;
+    nomeRazaoSocial: string;
+    indicadorIe: string;
+    endereco: EnderecoRequest;
+};
+
+export type ItemNfeRequest = {
+    codigo: string;
+    descricao: string;
+    quantidade: number;
+    valorUnitario: number;
+    valorTotal: number;
+};
+
+export type EmitirRequest = {
+    ambiente: Ambiente;
+    uf: Uf;
+    cnpjEmitente: string;
+    naturezaOperacao: string;
+    modelo: string;
+    serie: string;
+    numeroNfe: number;
+    dataEmissao: string;
+    valorTotal: number;
+    destinatario: DestinatarioRequest;
+    itens: ItemNfeRequest[];
+};
 
 export type StatusResponse = {
     correlationId?: string;

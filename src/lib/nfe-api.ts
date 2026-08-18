@@ -12,7 +12,7 @@ import {
 } from '@/types/nfe';
 
 const api = axios.create({
-    baseURL: process.env.EXPO_PUBLIC_API_URL ?? 'http://localhost:5000',
+    baseURL: process.env.EXPO_PUBLIC_API_URL ?? 'http://localhost:5082',
     timeout: 30000,
 });
 
